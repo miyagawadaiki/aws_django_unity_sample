@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #'apps',   # 追加
 	'Accounts.apps.AccountsConfig',   # 追加
+    'Map.apps.MapConfig',             # 追加
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
