@@ -22,4 +22,5 @@ urlpatterns = [
 
     # API追加
     path('Accounts/', include('Accounts.urls')), 
+    path('Map/', include('Map.urls')), 
 ]
