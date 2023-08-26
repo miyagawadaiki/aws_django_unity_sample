@@ -11,6 +11,8 @@ public class ScrollViewController : MonoBehaviour
 	[SerializeField]
 	private HttpManager httpManager = null;
 	[SerializeField]
+	private BackgroundController bgCntr = null;
+	[SerializeField]
 	private GameObject listItemObj = null;
 
 	private Transform contentTrans;
@@ -51,7 +53,7 @@ public class ScrollViewController : MonoBehaviour
 			foreach (ImageItem item in items) {
 				GameObject obj = Instantiate(listItemObj, Vector3.zero, Quaternion.identity, contentTrans) as GameObject;
 				ListItemController listItem = obj.GetComponent<ListItemController>();
-				listItem.RegisterBehavior(item);
+				listItem.RegisterBehavior(item, bgCntr);
 			}
 		}
 	}

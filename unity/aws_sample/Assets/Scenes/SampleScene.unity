@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   httpManager: {fileID: 379309495}
+  bgCntr: {fileID: 675363570}
   listItemObj: {fileID: 5672271608948670546, guid: 5869d42a348f0444aa72571d14a70d7a, type: 3}
 --- !u!1 &595239440
 GameObject:
@@ -631,8 +632,9 @@ GameObject:
   - component: {fileID: 675363567}
   - component: {fileID: 675363569}
   - component: {fileID: 675363568}
+  - component: {fileID: 675363570}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,6 +698,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675363566}
   m_CullTransparentMesh: 1
+--- !u!114 &675363570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675363566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a641f0a23befe4ce09d09fe8c4929dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1609147538
 GameObject:
   m_ObjectHideFlags: 0

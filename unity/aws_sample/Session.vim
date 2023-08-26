@@ -93,7 +93,7 @@ set softtabstop=4
 set spelllang=en,cjk
 set tabstop=4
 set title
-set window=4684607828604747776
+set window=3603818684826517504
 set nowrapscan
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
@@ -108,22 +108,24 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +41 Assets/Scripts/ScrollViewController.cs
-badd +0 Assets/Scripts/HttpManager.cs
-badd +0 Assets/Scripts/PublicContents.cs
+badd +18 Assets/Scripts/PublicContents.cs
+badd +37 Assets/Scripts/ListItemController.cs
+badd +53 Assets/Scripts/ScrollViewController.cs
+badd +0 Assets/Scripts/BackgroundController.cs
 argglobal
 %argdel
-$argadd Assets/Scripts/ScrollViewController.cs
+$argadd Assets/Scripts/PublicContents.cs
 edit Assets/Scripts/ScrollViewController.cs
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
-wincmd _ | wincmd |
-vsplit
-2wincmd h
+1wincmd h
 wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -134,10 +136,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 67 + 101) / 202)
-exe 'vert 2resize ' . ((&columns * 67 + 101) / 202)
-exe 'vert 3resize ' . ((&columns * 66 + 101) / 202)
+exe 'vert 1resize ' . ((&columns * 101 + 101) / 202)
+exe '2resize ' . ((&lines * 15 + 16) / 32)
+exe 'vert 2resize ' . ((&columns * 100 + 101) / 202)
+exe '3resize ' . ((&lines * 14 + 16) / 32)
+exe 'vert 3resize ' . ((&columns * 100 + 101) / 202)
 argglobal
+balt Assets/Scripts/PublicContents.cs
 setlocal noautoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -263,16 +268,16 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 44 - ((23 * winheight(0) + 15) / 30)
+let s:l = 54 - ((22 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 44
-normal! 034|
+keepjumps 54
+normal! 017|
 wincmd w
 argglobal
-if bufexists(fnamemodify("Assets/Scripts/PublicContents.cs", ":p")) | buffer Assets/Scripts/PublicContents.cs | else | edit Assets/Scripts/PublicContents.cs | endif
-balt Assets/Scripts/ScrollViewController.cs
+if bufexists(fnamemodify("Assets/Scripts/ListItemController.cs", ":p")) | buffer Assets/Scripts/ListItemController.cs | else | edit Assets/Scripts/ListItemController.cs | endif
+balt Assets/Scripts/PublicContents.cs
 setlocal noautoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -398,16 +403,16 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 14 - ((13 * winheight(0) + 15) / 30)
+let s:l = 37 - ((13 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
-normal! 06|
+keepjumps 37
+normal! $
 wincmd w
 argglobal
-if bufexists(fnamemodify("Assets/Scripts/HttpManager.cs", ":p")) | buffer Assets/Scripts/HttpManager.cs | else | edit Assets/Scripts/HttpManager.cs | endif
-balt Assets/Scripts/ScrollViewController.cs
+if bufexists(fnamemodify("Assets/Scripts/BackgroundController.cs", ":p")) | buffer Assets/Scripts/BackgroundController.cs | else | edit Assets/Scripts/BackgroundController.cs | endif
+balt Assets/Scripts/ListItemController.cs
 setlocal noautoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -533,17 +538,19 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 48 - ((13 * winheight(0) + 15) / 30)
+let s:l = 23 - ((11 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 48
-normal! 013|
+keepjumps 23
+normal! 030|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 67 + 101) / 202)
-exe 'vert 2resize ' . ((&columns * 67 + 101) / 202)
-exe 'vert 3resize ' . ((&columns * 66 + 101) / 202)
+exe 'vert 1resize ' . ((&columns * 101 + 101) / 202)
+exe '2resize ' . ((&lines * 15 + 16) / 32)
+exe 'vert 2resize ' . ((&columns * 100 + 101) / 202)
+exe '3resize ' . ((&lines * 14 + 16) / 32)
+exe 'vert 3resize ' . ((&columns * 100 + 101) / 202)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf

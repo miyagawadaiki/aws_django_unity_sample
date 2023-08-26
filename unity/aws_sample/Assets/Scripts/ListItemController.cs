@@ -27,13 +27,13 @@ public class ListItemController : MonoBehaviour
         
     }
 
-	public void RegisterBehavior(ImageItem imageItem) {
+	public void RegisterBehavior(ImageItem imageItem, BackgroundController bgCntr) {
 		text.text = imageItem.name;
 		Sprite sprite = Resources.Load<Sprite>(imageItem.obj_path);
 		// もし画像がないとき
 		//if ()
 		image.sprite = sprite;
 
-		//button.
+		button.onClick.AddListener(() => bgCntr.ChangeImage(sprite));
 	}
 }
