@@ -3,6 +3,7 @@ settings_local.py
 *.swp
 Session.vim
 .DS_Store
+__pycache__/*.cpython-39.pyc
 
 
 # This .gitignore file should be placed at the root of your Unity project directory
