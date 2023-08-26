@@ -12,7 +12,7 @@ public class ScrollViewController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		StartCoroutine(httpManager.GET("Map/maps/"));
+		StartCoroutine(httpManager.GET("Map/maps/1/"));
     }
 
     // Update is called once per frame

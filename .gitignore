@@ -1,7 +1,7 @@
 .python-version
 settings_local.py
 *.swp
-
+Session.vim
 
 
 # This .gitignore file should be placed at the root of your Unity project directory

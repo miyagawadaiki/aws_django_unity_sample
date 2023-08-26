@@ -20,10 +20,11 @@ public class HttpManager : MonoBehaviour
         
     }
 
-	IEnumerator GET(string sentence) {
+	public IEnumerator GET(string sentence) {
 		string uri = Constants.API_PREFIX + "/" + sentence;
 
 		Debug.Log("-------- GET Request Start --------");
+		Debug.Log("URI: " + uri);	
         using (UnityWebRequest request = UnityWebRequest.Get(uri))
         {
             yield return request.SendWebRequest();
@@ -38,7 +39,7 @@ public class HttpManager : MonoBehaviour
                 Debug.Log("GET Request Success");
                 Debug.Log(request.downloadHandler.text);
                 Dictionary<string, object> response = Json.Deserialize(request.downloadHandler.text) as Dictionary<string, object>;
-                Debug.Log(response["title"]);
+                Debug.Log(response["name"]);
             }
         }
 	}
