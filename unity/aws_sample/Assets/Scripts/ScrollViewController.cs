@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Newtonsoft.Json;
+using PublicContents;
+
 public class ScrollViewController : MonoBehaviour
 {
 	[SerializeField]
@@ -21,23 +24,27 @@ public class ScrollViewController : MonoBehaviour
 
 	// リストを作るコルーチン
 	IEnumerator MakeListCor() {
-		//// GETが成功したかどうかの値
-		//bool succeeded = false;
-
 		// GETのコルーチンをインスタンス化
 		IEnumerator coroutine = httpManager.GET("Map/maps/");
 		// GETが終わるまで待機
 		yield return StartCoroutine(coroutine);
 
-		//// 通信に失敗したとき
-		//if (!succeeded) {
-		//
-		//}
-		//else {
-		//foreach (Dictionary<string, string> item in coroutine.Current) {
-		//	Debug.Log(item["name"]);
-		//}
-		//}
-		Debug.Log(coroutine.Current);
+		// GETコルーチンが返す文字列
+		string response = (string)coroutine.Current;
+
+		// 通信に失敗したとき
+		if (response.Substring(0,5) == "ERROR") {
+				
+		}
+		// 通信に成功
+		else {
+			// JSON形式文字列を分解
+			List<ImageItem> items = JsonConvert.DeserializeObject<List<ImageItem>>(response);
+
+			// それぞれに対して操作
+			foreach (ImageItem item in items) {
+				Debug.Log(item.name);
+			}
+		}
 	}
 }
