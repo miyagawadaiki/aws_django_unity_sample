@@ -4,4 +4,4 @@ from .models import Map
 class MapSerializer(serializers.ModelSerializer):
     class Meta:
         model = Map
-        fields = ['name', 'obj_path']
+        fields = ['id', 'name', 'obj_path']
