@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Newtonsoft.Json;
 using PublicContents;
@@ -9,10 +10,15 @@ public class ScrollViewController : MonoBehaviour
 {
 	[SerializeField]
 	private HttpManager httpManager = null;
+	[SerializeField]
+	private GameObject listItemObj = null;
+
+	private Transform contentTrans;
 
     // Start is called before the first frame update
     void Start()
     {
+		contentTrans = this.GetComponent<ScrollRect>().content.transform;
 		StartCoroutine(MakeListCor());
     }
 
@@ -43,7 +49,9 @@ public class ScrollViewController : MonoBehaviour
 
 			// それぞれに対して操作
 			foreach (ImageItem item in items) {
-				Debug.Log(item.name);
+				GameObject obj = Instantiate(listItemObj, Vector3.zero, Quaternion.identity, contentTrans) as GameObject;
+				ListItemController listItem = obj.GetComponent<ListItemController>();
+				listItem.RegisterBehavior(item);
 			}
 		}
 	}

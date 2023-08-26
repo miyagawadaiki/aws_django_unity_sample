@@ -8,12 +8,15 @@ public static class Constants {
 
 
 
-private class BaseItem {
+public class BaseItem {
 	public int id { get; set; }
 	public string name { get; set; }
 	//public string explanation { get; set; }
+}
 
 // 画像
 public class ImageItem : BaseItem {
 	public string obj_path { get; set; }
+}
+
 }
