@@ -117,6 +117,11 @@ STATICFILES_DIRS = (BASE_DIR / 'static',)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# cross-origin-opener-policyに関する設定
+# これでエラー直らないかな
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+
 
 
 # 以下のブロックはsocial-auth用の設定
