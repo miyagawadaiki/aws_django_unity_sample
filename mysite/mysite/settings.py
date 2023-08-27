@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	'social_django',    # social-auth のため
     'rest_framework',   # django rest frameworkのため
     'corsheaders',      # CORSエラー対処のため
+    'sslserver',        # HTTPS
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,13 @@ CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
+
+
+# HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 
