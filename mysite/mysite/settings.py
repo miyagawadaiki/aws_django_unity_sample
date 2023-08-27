@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'social_django',    # social-auth のため
     'rest_framework',   # django rest frameworkのため
+    'corsheaders',      # CORSエラー対処のため
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',   # social-auth のため
+    'corsheaders.middleware.CorsMiddleware', 
+    'django.middleware.common.CommonMiddleware', 
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -121,6 +124,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # これでエラー直らないかな
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
+
+# CORSエラーに対する設定
+CORS_ALLOW_HEADERS = ['*']
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 
