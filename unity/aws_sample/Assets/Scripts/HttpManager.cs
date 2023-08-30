@@ -33,6 +33,9 @@ public class HttpManager : MonoBehaviour
 
         using (UnityWebRequest request = UnityWebRequest.Get(uri))
         {
+			// ssl認証をとりあえず無視する. サーバーが大学持ちになって証明書も作ったらもう使わない！ Dont use it unless developing stage!
+			request.certificateHandler = new BypassCertificate();
+
             yield return request.SendWebRequest();
 
 			// エラーが発生したとき
